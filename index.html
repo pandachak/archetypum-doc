@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>archetypum doc</title>
+
+  <!-- Шрифт -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      color: #111;
+      background: #f8f8f8;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      background: url('https://www.transparenttextures.com/patterns/lines.png') repeat;
+      opacity:0.08;
+      pointer-events:none;
+      z-index:-1;
+    }
+    header {
+      display:flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: fixed;
+      width:100%;
+      background:#fff;
+      z-index:100;
+      box-shadow:0 1px 6px rgba(0,0,0,0.08);
+    }
+    header nav a {
+      text-decoration:none;
+      font-weight:600;
+      margin-left:24px;
+      color:#111;
+      font-size:0.95rem;
+    }
+    .hero {
+      height:90vh;
+      padding-top:120px;
+      text-align:center;
+    }
+    .hero h1 {
+      font-size:4rem;
+      font-weight:700;
+      margin:0;
+    }
+    .hero p {
+      margin-top:12px;
+      font-size:1.3rem;
+      max-width:650px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .hero a {
+      display:inline-block;
+      margin-top:24px;
+      padding:12px 28px;
+      font-weight:600;
+      background:#111;
+      color:#fff;
+      text-decoration:none;
+      border-radius:4px;
+      font-size:0.95rem;
+    }
+    section {
+      padding:100px 20px;
+      max-width:960px;
+      margin:auto;
+    }
+    section:nth-child(odd) {background:#fff;}
+    section:nth-child(even) {background:#fefefe;}
+    .team {
+      display:grid;
+      gap:40px;
+      grid-template-columns:1fr 1fr;
+    }
+    .team h3 {
+      margin:0 0 8px 0;
+      font-weight:700;
+      font-size:1.5rem;
+    }
+    .works iframe {
+      width:100%;
+      height:420px;
+      border:none;
+      margin-bottom:32px;
+    }
+    .contacts {text-align:center; font-size:1rem;}
+    .contacts a {color:#111; text-decoration:none; font-weight:600;}
+    @media (max-width:768px){
+      .hero h1{font-size:3rem;}
+      .team{grid-template-columns:1fr;}
+      .works iframe{height:280px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div><strong>archetypum doc</strong></div>
+  <nav>
+    <a href="#team">Team</a>
+    <a href="#works">Works</a>
+    <a href="#contacts">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1 id="hero-title">archetypum doc</h1>
+  <p id="hero-text">Capturing the moment. Reality as it is — documentary filmmaking and reportage with minimal interference.</p>
+  <a href="#works" id="hero-btn">View Works</a>
+</div>
+
+<section id="team">
+  <h2 id="team-title">Team</h2>
+  <div class="team">
+    <div>
+      <h3 id="team1-name">Artur Tantsyrev — Cinematographer</h3>
+      <p id="team1-text">Artur is a purist in visual storytelling: light and color are the foundation of natural imagery, creating a sense of presence inside the frame.</p>
+    </div>
+    <div>
+      <h3 id="team2-name">Marina Yuldasheva — Director</h3>
+      <p id="team2-text">Text will be added later.</p>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <h2 id="works-title">Our Works</h2>
+  <div class="works">
+    <iframe src="https://player.vimeo.com/video/88460520" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section id="contacts">
+  <h2 id="contact-title">Contact</h2>
+  <p class="contacts" id="contact-text">
+    Email: <a href="mailto:example@email.com">example@email.com</a><br>
+    Vimeo: <a href="https://vimeo.com/user88460520" target="_blank">vimeo.com/user88460520</a>
+  </p>
+</section>
+
+<script>
+  // Словарь переводов
+  const translations = {
+    "hero-title": "archetypum doc",
+    "hero-text": "Запечатление момента. Суть как она есть — документальное кино и репортажи с минимальным вмешательством в реальность.",
+    "hero-btn": "Смотреть работы",
+    "team-title": "О команде",
+    "team1-name": "Артур Танцырев — оператор",
+    "team1-text": "Артур приверженец чистой визуальной формы: свет и цвет — основа естественной картины, создаёт ощущение присутствия внутри кадра.",
+    "team2-name": "Марина Юлдашева — режиссер",
+    "team2-text": "Текст будет добавлен позже.",
+    "works-title": "Наши работы",
+    "contact-title": "Контакты",
+    "contact-text": 'Email: <a href="mailto:example@email.com">example@email.com</a><br>Vimeo: <a href="https://vimeo.com/user88460520" target="_blank">vimeo.com/user88460520</a>'
+  };
+
+  // Функция перевода
+  function translate() {
+    for(const id in translations){
+      const el = document.getElementById(id);
+      if(el){ el.innerHTML = translations[id]; }
+    }
+  }
+
+  // Перевод при загрузке
+  window.addEventListener('load', translate);
+</script>
+
+</body>
+</html>
